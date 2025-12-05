@@ -9,7 +9,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->unique();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->text('bio')->nullable();
             $table->integer('years_of_experience')->default(0);

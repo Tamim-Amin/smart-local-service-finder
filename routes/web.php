@@ -20,7 +20,7 @@ Route::get('/services/{service}', [ServiceController::class, 'show'])->name('ser
 // Authentication Routes (handled by Laravel Breeze/Jetstream)
 require __DIR__.'/auth.php';
 
-Route::view('/profile', 'profile.edit')->middleware('auth')->name('profile.edit');
+// Route::view('/profile', 'profile.edit')->middleware('auth')->name('profile.edit');
 
 // Profile Routes (add these lines)
 Route::middleware('auth')->group(function () {

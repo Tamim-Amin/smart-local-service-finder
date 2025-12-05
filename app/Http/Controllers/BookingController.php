@@ -44,6 +44,10 @@ class BookingController extends Controller
     public function providerIndex()
     {
         $service = auth()->user()->service;
+        if (!$service) {
+        return redirect()->route('provider.services.create')
+            ->with('warning', 'Please create a service profile first.');
+    }
         $bookings = Booking::where('service_id', $service->id)
             ->with('customer')
             ->latest()
